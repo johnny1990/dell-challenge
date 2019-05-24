@@ -6,6 +6,9 @@ namespace DellChallenge.D2.Web.Services
     public interface IProductService
     {
         IEnumerable<ProductModel> GetAll();
+        ProductModel GetProductById(string id);
         ProductModel Add(NewProductModel newProduct);
+        ProductModel Update(ProductModel product);
+        ProductModel Delete(string id);
     }
 }
