@@ -20,27 +20,35 @@ namespace DellChallenge.B
         void Swim();
     }
 
-    public class Species
+    public interface IFly
     {
-        public virtual void GetSpecies()
-        {
-            Console.WriteLine($"Echo who am I?");
-        }
+        void Fly();
     }
 
-    public class Human : ISpecies
+    public interface ISwim
     {
-        public void Drink()
+        void Swim();
+    }
+
+    public abstract class Species
+    {
+        public abstract void GetSpecies();
+        public abstract void Eat();
+        public abstract void Drink();
+    }
+
+    public class Human : Species, ISwim
+    {
+        public override void GetSpecies()
+        {
+            throw new NotImplementedException();
+        }
+        public override void Drink()
         {
             throw new NotImplementedException();
         }
 
-        public void Eat()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Fly()
+        public override void Eat()
         {
             throw new NotImplementedException();
         }
@@ -51,12 +59,50 @@ namespace DellChallenge.B
         }
     }
 
-    public class Bird
+    public class Bird : Species, IFly
     {
+        public override void Drink()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Eat()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Fly()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void GetSpecies()
+        {
+            throw new NotImplementedException();
+        }
     }
 
-    public class Fish
+    public class Fish : Species, ISwim
     {
+        public override void Drink()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Eat()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void GetSpecies()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Swim()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
